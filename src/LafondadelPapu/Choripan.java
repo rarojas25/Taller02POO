@@ -1,6 +1,9 @@
 package LafondadelPapu;
 
 public class Choripan {
+	
+	public static final String TIPO = "Choripan";
+	
 	private String cosumidor;
 	private double largo;
 	private double ancho;
@@ -45,5 +48,31 @@ public class Choripan {
 		this.fecha = fecha;
 	}
 
+	public double caclularKcal() {
+		return (largo * ancho) / 3;
+	}
 	
+	public String alinearArchivo() {
+		return TIPO + ";" + cosumidor + ";" + Utilidades.numeroSimple(largo)
+		+ ";" + Utilidades.numeroSimple(ancho) + ";" + fecha;
+	}
+	
+	public String describir() {
+		return TIPO + " | " + consumidor + " | " + Utilidades.numeroSimple(largo)
+		+ " cm x " + Utilidades.numeroSimple(ancho) + " cm | " + fecha
+		+ " | " + Utilidades.dosDecimales(calcularKcal()) + " kcal";
+	}
+	
+	public String armarFila(int numero, boolean incluirKcal) {
+		String fila = " " + Utilidades.rellenarDerecha(String .valueOf(numero), 3)
+		+ " " + Utilidades.rellenarDerecha(consumidor, 12)
+		+ " " + Utilidades.rellenarIzquierda(Utilidades.numeroSimple(largo) ,6) + " cm "
+		+ Utilidades.rellenarIzquierda(Utilidades.numeroSimple(ancho), 6) + " cm "
+		+ Utilidades.rellenarDerecha(fecha, 11);
+		
+		if(incluirKcal) {
+			fila = fila + Utilidades.rellenarIzquierda(Utilidades.dosDecimales(calcularKcal()), 8);
+		}
+		return fila;
+	}
 }
