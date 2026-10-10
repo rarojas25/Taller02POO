@@ -114,9 +114,10 @@ public class Fonda {
 	}
 	
 	public boolean agregarTerremoto(Terremoto terremoto) {
-		if(!hayEspacio) {
+		if(!hayEspacio()) {
 			return false;
 		}
+		
 		terremotos[cantTerremotos] = terremoto;
 		cantTerremotos++;
 		return true;

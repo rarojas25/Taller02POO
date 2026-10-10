@@ -4,13 +4,13 @@ public class Choripan {
 	
 	public static final String TIPO = "Choripan";
 	
-	private String cosumidor;
+	private String consumidor;
 	private double largo;
 	private double ancho;
 	private String fecha;
 	
 	public Choripan(String cosumidor, double largo, double ancho, String fecha) {
-		this.cosumidor = cosumidor;
+		this.consumidor = cosumidor;
 		this.largo = largo;
 		this.ancho = ancho;
 		this.fecha = fecha;
@@ -53,7 +53,7 @@ public class Choripan {
 	}
 	
 	public String alinearArchivo() {
-		return TIPO + ";" + cosumidor + ";" + Utilidades.numeroSimple(largo)
+		return TIPO + ";" + consumidor + ";" + Utilidades.numeroSimple(largo)
 		+ ";" + Utilidades.numeroSimple(ancho) + ";" + fecha;
 	}
 	

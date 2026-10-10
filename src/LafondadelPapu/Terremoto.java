@@ -53,7 +53,7 @@ public class Terremoto {
 	
 	public String amarFila(int numero, boolean incluirKcal) {
 		String fila = " " + Utilidades.rellenarDerecha(String.valueOf(numero), 3) 
-			+ " " + Utilidades.rellenarDerecha(cosumidor, 12)
+			+ " " + Utilidades.rellenarDerecha(consumidor, 12)
 			+ " " + Utilidades.rellenarIzquierda(Utilidades.numeroSimple(litros), 7)
 			+ " L " + Utilidades.rellenarDerecha(fecha, 11);
 		if(incluirKcal) {
