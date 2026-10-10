@@ -1,4 +1,4 @@
-package logica;
+package LafondadelPapu;
 
 public class Main {
 
