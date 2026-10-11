@@ -17,11 +17,11 @@ public class Choripan {
 	}
 
 	public String getCosumidor() {
-		return cosumidor;
+		return consumidor;
 	}
 
-	public void setCosumidor(String cosumidor) {
-		this.cosumidor = cosumidor;
+	public void setCosumidor(String consumidor) {
+		this.consumidor = consumidor;
 	}
 
 	public double getLargo() {
@@ -48,7 +48,7 @@ public class Choripan {
 		this.fecha = fecha;
 	}
 
-	public double caclularKcal() {
+	public double calcularKcal() {
 		return (largo * ancho) / 3;
 	}
 	
@@ -71,7 +71,7 @@ public class Choripan {
 		+ Utilidades.rellenarDerecha(fecha, 11);
 		
 		if(incluirKcal) {
-			fila = fila + Utilidades.rellenarIzquierda(Utilidades.dosDecimales(calcularKcal()), 8);
+			fila += Utilidades.rellenarIzquierda(Utilidades.dosDecimales(calcularKcal()), 8);
 		}
 		return fila;
 	}

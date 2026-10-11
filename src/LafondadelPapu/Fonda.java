@@ -32,6 +32,7 @@ public class Fonda {
 			return false;
 		}
 		participantes[cantParticipantes] = participante;
+		cantParticipantes++;
 		return true;
 	}
 	
@@ -67,6 +68,7 @@ public class Fonda {
 			return false;
 		}
 		choripanes[cantChoripanes] = choripan;
+		cantChoripanes++;
 		return true;
 	}
 	
@@ -107,7 +109,7 @@ public class Fonda {
 		double total = 0;
 		for(int i = 0; i < cantChoripanes; i++) {
 			if(choripanes[i].getCosumidor().equalsIgnoreCase(nombre)) {
-				total += choripanes[i].caclularKcal();
+				total += choripanes[i].calcularKcal();
 			}
 		}
 		return total;
@@ -142,7 +144,7 @@ public class Fonda {
 		return terremotos[idx];
 	}
 	
-	public int cantTerremotos() {
+	public int getCantTerremotos() {
 		return cantTerremotos;
 		}
 	
@@ -173,6 +175,7 @@ public class Fonda {
 		}
 		return total;
 	}
+	
 	public double kcalTerremotosPorUsuario(String nombre) {
 		double total = 0;
 		for(int i = 0; i < cantTerremotos; i++) {
@@ -214,6 +217,7 @@ public class Fonda {
 				}
 			}
 		}
+		
 		String[] resultado = new String[cantDiasEbrio];
 		for(int k = 0; k < cantDiasEbrio; k++) {
 			resultado[k] = diasEbrio[k];
@@ -234,7 +238,7 @@ public class Fonda {
 	public double kcalTotalFonda() {
 		double total = 0;
 		for(int i = 0; i < cantChoripanes; i++) {
-			total += choripanes[i].caclularKcal();
+			total += choripanes[i].calcularKcal();
 		}
 		for(int i = 0; i < cantTerremotos; i++) {
 			total += terremotos[i].calcularKcal(); 

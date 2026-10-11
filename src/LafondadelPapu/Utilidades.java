@@ -1,7 +1,9 @@
 package LafondadelPapu;
 
 public class Utilidades {
+	
 	public static boolean esEntero(String texto) {
+		
 		if(texto == null || texto.isEmpty() ||texto.length() > 9) {
 			return false;
 		}
@@ -13,7 +15,13 @@ public class Utilidades {
 		if(inicio == texto.length()) {
 			return false;
 		}
-		return soloDigitos(texto.substring(inicio));
+		for(int i = inicio; i < texto.length(); i++) {
+			char caracter = texto.charAt(i);
+			if(caracter < '0' || caracter > '9') {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	public static boolean esNumeroPositivo(String texto) {
@@ -38,6 +46,7 @@ public class Utilidades {
 					return false;
 				}
 			}
+		
 			if(cantDigitos == 0 || cantSeparadores > 1 || cantDecimales > 4) {
 				return false;
 			}
@@ -56,6 +65,7 @@ public class Utilidades {
 			if(fecha.charAt(4) != '-' || fecha.charAt(7) != '-'){
 				return false;
 			}
+			
 			String textoAnio = fecha.substring(0, 4);
 			String textoMes = fecha.substring(5, 7);
 			String textoDia = fecha.substring(8, 10);

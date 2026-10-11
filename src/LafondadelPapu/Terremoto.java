@@ -57,7 +57,7 @@ public class Terremoto {
 			+ " " + Utilidades.rellenarIzquierda(Utilidades.numeroSimple(litros), 7)
 			+ " L " + Utilidades.rellenarDerecha(fecha, 11);
 		if(incluirKcal) {
-			fila = fila + Utilidades.rellenarIzquierda(Utilidades.dosDecimales(calcularKcal()), 8); 
+			fila += Utilidades.rellenarIzquierda(Utilidades.dosDecimales(calcularKcal()), 8); 
 		}
 		return fila;
 	}
