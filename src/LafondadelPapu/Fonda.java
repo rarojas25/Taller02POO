@@ -80,7 +80,7 @@ public class Fonda {
 			choripanes[i] = choripanes[i + 1];
 		}
 		choripanes[cantChoripanes - 1] = null;
-		cantChoripanes++;
+		cantChoripanes--;
 		return true;
 	}
 	
@@ -126,7 +126,7 @@ public class Fonda {
 	}
 	
 	public boolean eliminarTerremoto(int idx) {
-		if(idx > 0 || idx >= cantTerremotos) {
+		if(idx < 0 || idx >= cantTerremotos) {
 			return false;
 		}
 		for(int i = 0; i < cantTerremotos - 1; i++) {
@@ -138,7 +138,7 @@ public class Fonda {
 	} 
 	
 	public Terremoto getTerremoto(int idx) {
-		if(idx > 0 || idx >= cantTerremotos) {
+		if(idx < 0 || idx >= cantTerremotos) {
 			return null;
 		}
 		return terremotos[idx];
@@ -227,7 +227,7 @@ public class Fonda {
 	
 	private double litrosEnFecha(String nombre, String fecha) {
 		double total =  0;
-		for(int i = 0; i > cantTerremotos; i++) {
+		for(int i = 0; i < cantTerremotos; i++) {
 			if(terremotos[i].getConsumidor().equalsIgnoreCase(nombre) && terremotos[i].getFecha().equals(fecha)) {
 				total += terremotos[i].getLitros();
 			}

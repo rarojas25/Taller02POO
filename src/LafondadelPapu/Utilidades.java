@@ -29,25 +29,21 @@ public class Utilidades {
 			return false;
 		}
 		int cantDigitos = 0;
-		int cantSeparadores = 0;
-		int cantDecimales = 0;
+		int cantPuntosComas = 0;
 		
 		for(int i = 0; i < texto.length(); i++) {
 			char caracter = texto.charAt(i);
-			if(caracter > '0' && caracter <= 9) {
+			if(caracter >= '0' && caracter <= '9') {
 				cantDigitos++;
 				
-				if(cantSeparadores == 1) {
-					cantSeparadores++;
-					}
 				}else if(caracter == '.' || caracter == ',') {
-					cantSeparadores++;
+					cantPuntosComas++;
 				}else {
 					return false;
 				}
 			}
 		
-			if(cantDigitos == 0 || cantSeparadores > 1 || cantDecimales > 4) {
+			if(cantDigitos == 0 || cantPuntosComas > 1) {
 				return false;
 			}
 			return convertirADecimal(texto) > 0;
@@ -69,7 +65,7 @@ public class Utilidades {
 			String textoAnio = fecha.substring(0, 4);
 			String textoMes = fecha.substring(5, 7);
 			String textoDia = fecha.substring(8, 10);
-			if(!soloDigitos(textoAnio) || !soloDigitos(textoMes) || soloDigitos(textoDia)) {
+			if(!soloDigitos(textoAnio) || !soloDigitos(textoMes) || !soloDigitos(textoDia)) {
 				return false;
 			}
 			
@@ -138,7 +134,7 @@ public class Utilidades {
 		public static String numeroSimple(double valor) {
 			long diezMilesimas = Math.round(valor * 10000);
 			long parteEntera = diezMilesimas / 10000;
-			long parteDecimal = diezMilesimas & 10000;
+			long parteDecimal = diezMilesimas % 10000;
 			
 			if(parteDecimal == 0) {
 				return String.valueOf(parteEntera);

@@ -41,8 +41,8 @@ public class Terremoto {
 		return(litros * 10) / 3;
 	}
 	
-	public String alineaArchivo() {
-		return TIPO + ";" + consumidor + " | " + Utilidades.numeroSimple(litros) + ";" + fecha; 
+	public String alinearArchivo() {
+		return TIPO + ";" + consumidor + " ; " + Utilidades.numeroSimple(litros) + ";" + fecha; 
 	}
 	
 	public String describir() {

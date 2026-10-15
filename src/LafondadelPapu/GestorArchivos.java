@@ -39,6 +39,7 @@ public class GestorArchivos {
 				}
 			}
 			lector.close();
+			
 		}catch(IOException e) {
 			System.out.println(">> ADVERTENCIA: hubo un problema al leer\"" 
 			+ ARCHIVO_PARTICIPANTES + "\"." );
@@ -80,7 +81,8 @@ public class GestorArchivos {
 					}
 					
 					if(resultado == RESULTADO_DESCARTADA) {
-						lineasDescartadas++;
+						lineasDescartadas++;						
+						
 					}else if(resultado == RESULTADO_SIN_ESPACIO) {
 						lineasSinEspacio++;
 					}
@@ -109,7 +111,7 @@ public class GestorArchivos {
 		String ancho = partes[3].trim();
 		String fecha = partes[4].trim();
 		
-		if(consumidor.isEmpty() || !Utilidades.esNumeroPositivo(largo) || !Utilidades.esNumeroPositivo(ancho) || Utilidades.esFechaValida(fecha)) {
+		if(consumidor.isEmpty() || !Utilidades.esNumeroPositivo(largo) || !Utilidades.esNumeroPositivo(ancho) || !Utilidades.esFechaValida(fecha)) {
 			return RESULTADO_DESCARTADA;
 		}
 		
@@ -163,7 +165,7 @@ public class GestorArchivos {
 				escritor.newLine();
 			}
 			for(int i = 0; i < fonda.getCantTerremotos(); i++) {
-				escritor.write(fonda.getTerremoto(i).alineaArchivo());
+				escritor.write(fonda.getTerremoto(i).alinearArchivo());
 				escritor.newLine();
 			}
 			escritor.close();
